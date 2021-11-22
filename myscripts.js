@@ -2,10 +2,12 @@
 
 const collection = [];
 const addbtn = document.getElementById("add");
-const removeBtn = document.getElementById("remove");
+const removeBtn = document.querySelectorAll('.remove');
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const bookContainer = document.getElementById("bookContainer");
+
+console.log(removeBtn);
 
 // OBJECT CONSTRUCTOR FUNCTION
 
@@ -34,14 +36,12 @@ addbook = function() {
 removeBook = () => {
     console.log("remove clicked");
     console.log(bookContainer);
-   
     // bookContainer.forEach( el=>
     //  console.log(el.firstChild)
     // );
   collection.filter((book, index, array) => {
     if(book.title === title.innerText){
         array.pop();
-      
     console.log(book.title);
    }
 });
@@ -49,9 +49,6 @@ removeBook = () => {
    bookContainer.innerHTML = "";
    createBook(collection);
     console.log(collection);
-  
-
-  
    };
 
 
@@ -71,14 +68,15 @@ const createBook = (arr) => {
     newDiv.innerHTML = booksHtmlTemplate(element);
     dinContent.appendChild(newDiv);
     bookContainer.appendChild(dinContent);
-    console.log(element, dinContent, newDiv.innerHTML);
   });
 };
 
 // EVENT LISTENERS
 
 addbtn.addEventListener("click",addbook);
-removeBtn.addEventListener("click", removeBook);
+removeBtn.forEach(item => {
+  item.addEventListener('click', event => console.log('clicked'));
+})
 // const titleinput = document.getElementById("titleInput").value;
 // const authorinput = document.getElementById("authorInput").value;
 // const book2 = new Book(titleinput, authorinput);
