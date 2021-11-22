@@ -28,6 +28,7 @@ addbook = function() {
       collection.push(book);}
     console.log(collection);
     createBook(collection);
+    console.log(collection);
 }
 
 removeBook = () => {
