@@ -27,8 +27,8 @@ addbook = function() {
       const book = new Book(titleinput, authorinput)
       collection.push(book);}
     console.log(collection);
+    bookContainer.innerHTML = '';
     createBook(collection);
-    console.log(collection);
 }
 
 removeBook = () => {
