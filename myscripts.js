@@ -32,12 +32,27 @@ addbook = function() {
 }
 
 removeBook = () => {
-  collection.filter((book, index, newColl) => { console.log(book[index].title);}
+    console.log("remove clicked");
+  collection.filter((book, index, array) => {
+    if(book.title === title.innerText){  
+        array.pop();
+    console.log(book.title);}
+    
+    console.log(collection);
+
+  }
   )};
 
 removeBook();
 
 // EVENT LISTENERS
+console.log(title.value);
+filertitle = () => {
+       console.log(title.value);
+       //  if(collection.Book.title === )
+  
+
+}
 
 addbtn.addEventListener("click",addbook);
 removeBtn.addEventListener("click", removeBook);
