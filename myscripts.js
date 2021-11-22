@@ -33,15 +33,27 @@ addbook = function() {
 
 removeBook = () => {
     console.log("remove clicked");
+    console.log(bookContainer);
+   
+    // bookContainer.forEach( el=>
+    //  console.log(el.firstChild)
+    // );
   collection.filter((book, index, array) => {
     if(book.title === title.innerText){
         array.pop();
-    console.log(book.title);}
-    console.log(collection);
-  }
-  )};
+      
+    console.log(book.title);
+   }
+});
 
-removeBook();
+   bookContainer.innerHTML = "";
+   createBook(collection);
+    console.log(collection);
+  
+
+  
+   };
+
 
 const booksHtmlTemplate = (obj) =>
   `<label id="title">${obj.title}</label><br>
@@ -72,3 +84,4 @@ removeBtn.addEventListener("click", removeBook);
 // const book2 = new Book(titleinput, authorinput);
 // collection.push(book2);
 // console.log(collection);
+console.log(bookContainer);
