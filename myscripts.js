@@ -5,6 +5,7 @@ const addbtn = document.getElementById("add");
 const removeBtn = document.getElementById("remove");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
+const bookContainer = document.getElementById("bookContainer");
 
 // OBJECT CONSTRUCTOR FUNCTION
 
@@ -25,34 +26,43 @@ addbook = function() {
     if (!titleinput == '' && !authorinput == '') {
       const book = new Book(titleinput, authorinput)
       collection.push(book);}
-    console.log("clicked");
     console.log(collection);
-    title.innerText = titleinput;
-    author.innerText = authorinput;
+    createBook(collection);
 }
 
 removeBook = () => {
     console.log("remove clicked");
   collection.filter((book, index, array) => {
-    if(book.title === title.innerText){  
+    if(book.title === title.innerText){
         array.pop();
     console.log(book.title);}
-    
     console.log(collection);
-
   }
   )};
 
 removeBook();
 
-// EVENT LISTENERS
-console.log(title.value);
-filertitle = () => {
-       console.log(title.value);
-       //  if(collection.Book.title === )
-  
+const booksHtmlTemplate = (obj) =>
+  `<label id="title">${obj.title}</label><br>
+  <label id="author">${obj.author}</label><br>
+  <input id="remove" type="button" value="Remove">
+  <hr>`;
 
-}
+const createBook = (arr) => {
+  arr.forEach((element) => {
+    console.log(arr);
+    const dinContent = document.createDocumentFragment();
+    const newDiv = document.createElement('div');
+    console.log(element);
+    console.log(booksHtmlTemplate(element));
+    newDiv.innerHTML = booksHtmlTemplate(element);
+    dinContent.appendChild(newDiv);
+    bookContainer.appendChild(dinContent);
+    console.log(element, dinContent, newDiv.innerHTML);
+  });
+};
+
+// EVENT LISTENERS
 
 addbtn.addEventListener("click",addbook);
 removeBtn.addEventListener("click", removeBook);
