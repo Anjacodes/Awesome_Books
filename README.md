@@ -4,7 +4,7 @@
 
 This is a book list where the user can store book titles.
 
-<img width="710" alt="Screenshot_mobile_portfolio" src="https://user-images.githubusercontent.com/75140420/138000867-c3cb9ce7-f500-46c1-8509-814e714c0e4c.png">
+<img width="710" alt="Screenshot of App" src="Awsome_Books.png">
 
 So far, the website consists of a basic HTML structure and JavaScript functionality.
 
