@@ -6,7 +6,8 @@ const addbtn = document.getElementById("add");
  var title;
 const author = document.getElementById("author");
 const bookContainer = document.getElementById("bookContainer");
-console.log(title);
+let btnValue;
+
 // OBJECT CONSTRUCTOR FUNCTION
 
 function Book(title,author) {
@@ -29,38 +30,13 @@ addbook = function() {
     update();
 }
 
-removeBook = () => {
-    console.log("remove clicked");
-    console.log(bookContainer);
-    console.log(collection);
-    console.log(title);
-
- 
-  collection.filter((book, array) => {
-
-    console.log(title); 
-    for(let i=0;i<title.length;i++){
-      console.log(title[i].innerText);
-      if(book.title === title[i].innerText){
-        collection.pop();
-   }
-
-    }
-  
-});
-
-   bookContainer.innerHTML = "";
-   createBook(collection);
-    console.log(collection);
-    
-   };
-
-
 const booksHtmlTemplate = (obj) =>
-  `<label class="title">${obj.title}</label><br>
+  `<div class="bookCont">
+  <label class="title">${obj.title}</label><br>
   <label id="author">${obj.author}</label><br>
-  <button class="remove" type="button">Remove</button>
-  <hr>`;
+  <button class='remove' type='button' value=''>Remove</button>
+  <hr>
+  </div>`;
 
 const createBook = (arr) => {
   arr.forEach((element) => {
@@ -81,21 +57,33 @@ update = function() {
 console.log(elements);
 title = document.getElementsByClassName("title");
 console.log(title);
- 
-for (var i = 0; i < elements.length; i++) {
-  elements[i].addEventListener('click',removeBook, false);
+const bookCont = document.querySelectorAll('.bookCont');
+console.log(bookCont);
+
+for (let i = 0; i < elements.length; i++) {
+  // btnValue = elements[i].value = i;
+  // console.log(elements[i].value);
+  elements[i].addEventListener('click', () => {
+      console.log("remove clicked");
+      console.log(title[i].innerHTML, bookCont[i]);
+      bookCont[i].innerHTML = '';
+      collection.splice(i);
+      // bookCont[i].innerHTML = '';
+    //   for(let i=0;i<title.length;i++){
+    //     console.log(collection[i].title);
+    //   }
+    //  bookContainer.innerHTML = "";
+    //  createBook(collection);
+    //   console.log(collection);
+     });
 }
 
 }
-
-
-
 
 addbtn.addEventListener("click",addbook);
-const removeBtn = document.querySelectorAll('.remove');
-console.log(removeBtn);
-removeBtn.forEach((button) => {
-  button.addEventListener('click', (e) => {
-   alert(e.target);
-  });
-});
+// // const removeBtn = document.querySelectorAll('.remove');
+// removeBtn.forEach((button) => {
+//   button.addEventListener('click', (e) => {
+//    alert(e.target);
+//   });
+// });
