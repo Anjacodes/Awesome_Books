@@ -2,12 +2,9 @@
 
 const collection = [];
 const addbtn = document.getElementById("add");
-const removeBtn = document.querySelectorAll('.remove');
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const bookContainer = document.getElementById("bookContainer");
-
-console.log(removeBtn);
 
 // OBJECT CONSTRUCTOR FUNCTION
 
@@ -16,19 +13,16 @@ function Book(title,author) {
     this.author = author;
   }
 
-//   const book = new Book('Eagle', 'Talon TSi');
-//   collection.push(book);
-// console.log(collection);
-
 // FUNCTON DECLARATIONS
 
 addbook = function() {
     const titleinput = document.getElementById("titleInput").value;
     const authorinput = document.getElementById("authorInput").value;
     if (!titleinput == '' && !authorinput == '') {
-      const book = new Book(titleinput, authorinput)
+      const book = new Book(titleinput, authorinput);
       collection.push(book);}
-    console.log(collection);
+      window.localStorage.setItem('book', JSON.stringify(Book));
+    // console.log(collection);
     bookContainer.innerHTML = '';
     createBook(collection);
 }
@@ -36,13 +30,9 @@ addbook = function() {
 removeBook = () => {
     console.log("remove clicked");
     console.log(bookContainer);
-    // bookContainer.forEach( el=>
-    //  console.log(el.firstChild)
-    // );
-  collection.filter((book, index, array) => {
+  collection.filter((book, array) => {
     if(book.title === title.innerText){
         array.pop();
-    console.log(book.title);
    }
 });
 
@@ -55,16 +45,16 @@ removeBook = () => {
 const booksHtmlTemplate = (obj) =>
   `<label id="title">${obj.title}</label><br>
   <label id="author">${obj.author}</label><br>
-  <input id="remove" type="button" value="Remove">
+  <button class="remove" type="button">Remove</button>
   <hr>`;
 
 const createBook = (arr) => {
   arr.forEach((element) => {
-    console.log(arr);
+    // console.log(arr);
     const dinContent = document.createDocumentFragment();
     const newDiv = document.createElement('div');
-    console.log(element);
-    console.log(booksHtmlTemplate(element));
+    // console.log(element);
+    // console.log(booksHtmlTemplate(element));
     newDiv.innerHTML = booksHtmlTemplate(element);
     dinContent.appendChild(newDiv);
     bookContainer.appendChild(dinContent);
@@ -74,12 +64,10 @@ const createBook = (arr) => {
 // EVENT LISTENERS
 
 addbtn.addEventListener("click",addbook);
-removeBtn.forEach(item => {
-  item.addEventListener('click', event => console.log('clicked'));
-})
-// const titleinput = document.getElementById("titleInput").value;
-// const authorinput = document.getElementById("authorInput").value;
-// const book2 = new Book(titleinput, authorinput);
-// collection.push(book2);
-// console.log(collection);
-console.log(bookContainer);
+const removeBtn = document.querySelectorAll('.remove');
+console.log(removeBtn);
+removeBtn.forEach((button) => {
+  button.addEventListener('click', (e) => {
+   alert(e.target);
+  });
+});
