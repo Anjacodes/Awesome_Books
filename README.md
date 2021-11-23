@@ -15,7 +15,7 @@ JavaScript
 
 <h2>Live Demo</h2>
 
-<a href="#" rel="noopener noreferrer">Live Demo Link</a>
+<a href="https://anjacodes.github.io/Awesome_Books/" rel="noopener noreferrer">Live Demo Link</a>
 
 <h2>Getting Started</h2>
 
