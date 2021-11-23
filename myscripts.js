@@ -10,6 +10,12 @@ let btnValue;
 
 // OBJECT CONSTRUCTOR FUNCTION
 
+document.addEventListener ('DOMContentLoad', () => {
+  if (localStorage === "") {
+window.localStorage.getItem('book');
+  }
+})
+
 function Book(title,author) {
     this.title = title;
     this.author = author;
@@ -23,7 +29,7 @@ addbook = function() {
     if (!titleinput == '' && !authorinput == '') {
       const book = new Book(titleinput, authorinput);
       collection.push(book);}
-      window.localStorage.setItem('book', JSON.stringify(Book));
+      localStorage.setItem('books', JSON.stringify(collection));
     // console.log(collection);
     bookContainer.innerHTML = '';
     createBook(collection);
@@ -46,6 +52,8 @@ const createBook = (arr) => {
     // console.log(element);
     // console.log(booksHtmlTemplate(element));
     newDiv.innerHTML = booksHtmlTemplate(element);
+    localStorage.setItem('book', JSON.stringify(element));
+    console.log(element.title, element.author);
     dinContent.appendChild(newDiv);
     bookContainer.appendChild(dinContent);
   });
@@ -61,20 +69,14 @@ const bookCont = document.querySelectorAll('.bookCont');
 console.log(bookCont);
 
 for (let i = 0; i < elements.length; i++) {
-  // btnValue = elements[i].value = i;
-  // console.log(elements[i].value);
   elements[i].addEventListener('click', () => {
       console.log("remove clicked");
       console.log(title[i].innerHTML, bookCont[i]);
-      bookCont[i].innerHTML = '';
-      collection.splice(i);
-      // bookCont[i].innerHTML = '';
-    //   for(let i=0;i<title.length;i++){
-    //     console.log(collection[i].title);
-    //   }
-    //  bookContainer.innerHTML = "";
-    //  createBook(collection);
-    //   console.log(collection);
+      collection.splice(i, 1);
+      console.log(collection);
+      bookContainer.innerHTML = "";
+      createBook(collection);
+      update();
      });
 }
 
