@@ -57,7 +57,7 @@ class BookManager {
     return this.collection[i];
   }
 
-  addbook() {
+  addbook = () => {
     const titleinput = document.getElementById('titleInput').value;
     const authorinput = document.getElementById('authorInput').value;
     bookmgr.storageObject = JSON.parse(localStorage.getItem('books'));
