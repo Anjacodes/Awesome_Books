@@ -9,7 +9,7 @@
 //       localStorage.setItem('books', JSON.stringify(bookmgr.storageObject));
 //       DocAccesor.bookContainer.innerHTML += booksHtmlTemplate(book);
 //     } else {
-//       bookmgr.add_books(book);
+//       bookmgr.addBooks(book);
 //       localStorage.setItem('books', JSON.stringify(bookmgr.collection));
 //       DocAccesor.bookContainer.innerHTML += booksHtmlTemplate(book);
 //     }
@@ -17,20 +17,23 @@
 //   }
 // };
 
-
 class BookManager {
   collection = [];
-  Book = {title: "", author: ""};
+
+  Book = {
+    title: '',
+    author: '',
+  };
+
   addbtn;
+
   bookmgr;
 
   bookContainer;
 
-
   storageObject;
 
   constructor() {
-   
     this.storageObject = '';
     this.addbtn = document.getElementById('add');
     this.addbtn.addEventListener('click', this.addbook);
@@ -46,11 +49,11 @@ class BookManager {
     });
   }
 
-  add_books(book) {
+  addBooks(book) {
     this.collection.push(book);
   }
 
-  get_book(i) {
+  getBook(i) {
     return this.collection[i];
   }
 
@@ -59,17 +62,16 @@ class BookManager {
     const authorinput = document.getElementById('authorInput').value;
     bookmgr.storageObject = JSON.parse(localStorage.getItem('books'));
     if (titleinput !== '' && authorinput !== '') {
-      bookmgr.Book.title=titleinput;
-      bookmgr.Book.author=authorinput;
-      const book_check = bookmgr.Book;
-      console.log(book_check);
-      const book = book_check;
+      bookmgr.Book.title = titleinput;
+      bookmgr.Book.author = authorinput;
+      const bookCheck = bookmgr.Book;
+      const book = bookCheck;
       if (bookmgr.storageObject === '') {
         bookmgr.storageObject.push(book);
         localStorage.setItem('books', JSON.stringify(bookmgr.storageObject));
         bookmgr.bookContainer.innerHTML += bookmgr.booksHtmlTemplate(book);
       } else {
-        bookmgr.add_books(book);
+        bookmgr.addBooks(book);
         localStorage.setItem('books', JSON.stringify(bookmgr.collection));
         bookmgr.bookContainer.innerHTML += bookmgr.booksHtmlTemplate(book);
       }
@@ -111,11 +113,7 @@ class BookManager {
 }
 
 let bookmgr = new BookManager();
-
 // SELECTORS
-
-
-
 
 // const addbtn = document.getElementById('add');
 // title = document.getElementById('title');
