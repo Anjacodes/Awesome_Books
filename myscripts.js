@@ -1,6 +1,6 @@
 // SELECTORS
 
-const collection = [];
+let collection = [];
 const addbtn = document.getElementById('add');
 // title = document.getElementById('title');
 const bookContainer = document.getElementById('bookContainer');
@@ -26,17 +26,16 @@ const createBook = (arr) => {
 const update = () => {
   const elements = document.getElementsByClassName('remove');
   const bookCont = document.querySelectorAll('.bookCont');
-  storageObject = JSON.parse(localStorage.getItem('books'));
-  for (let i = 0; i < elements.length; i += 1) {
-    elements[i].addEventListener('click', () => {
-      // console.log('remove clicked');
-      if (bookCont[i].parentNode) {
-        bookCont[i].parentNode.removeChild(bookCont[i]);
-        storageObject.splice(i, 1);
-        localStorage.setItem('books', JSON.stringify(storageObject));
+  collection = JSON.parse(localStorage.getItem('books'));
+  Array.from(elements).forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      if (bookCont[index].parentNode) {
+        bookCont[index].parentNode.removeChild(bookCont[index]);
+        collection.splice(index, 1);
+        localStorage.setItem('books', JSON.stringify(collection));
       }
     });
-  }
+  });
 };
 
 // OBJECT CONSTRUCTOR FUNCTION
@@ -45,7 +44,7 @@ window.addEventListener('load', () => {
   storageObject = JSON.parse(localStorage.getItem('books'));
   if (storageObject !== '') {
     createBook(storageObject);
-  update();
+    update();
   }
 });
 
