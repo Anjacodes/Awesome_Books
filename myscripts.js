@@ -42,9 +42,11 @@ const update = () => {
 
 window.addEventListener('load', () => {
   storageObject = JSON.parse(localStorage.getItem('books'));
-  if (storageObject !== '') {
+  if (storageObject) {
     createBook(storageObject);
     update();
+  } else {
+    bookContainer.innerHTML = '';
   }
 });
 
