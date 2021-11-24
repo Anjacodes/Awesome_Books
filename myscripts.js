@@ -7,9 +7,9 @@ const bookContainer = document.getElementById('bookContainer');
 let storageObject = '';
 
 const booksHtmlTemplate = (obj) => `<div class='bookCont'>
-  <label class='title'>${obj.title}</label><br>
-  <label id='author'>${obj.author}</label><br>
-  <button class='remove' type='button' onclick= value=''>Remove</button>
+  <label class='title'>${obj.title}</label>
+  <label id='author'><span>by</span>${obj.author}</label><br>
+  <button class='remove btnShadow align-right btnHover' type='button' onclick= value=''>Remove</button>
   <hr>
   </div>`;
 
