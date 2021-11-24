@@ -1,3 +1,106 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+}
+
+main {
+  margin: 50px 25px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 10px;
+  align-self: center;
+  color: rgb(221, 205, 62);
+  font-size: 3rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bookContainer {
+  border: solid 3px rgb(221, 205, 62);
+  padding: 5px 10px 0 10px;
+  width: 80vw;
+  margin-bottom: 25px;
+}
+
+.bookCont {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+
+.bookCont:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* #author {
+  margin-left: -40px;
+} */
+
+#author > span {
+  margin-right: 5px;
+}
+
+.btnShadow {
+  box-shadow: 2px 2px darkgrey;
+}
+
+.align-right {
+  text-align: right;
+  background-color: rgb(255, 99, 71);
+}
+
+hr {
+  display: none;
+}
+
+.addBook {
+  margin-bottom: 10px;
+  color: rgb(221, 205, 62);
+  font-weight: bold;
+}
+
+.formCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.separator {
+  display: block;
+  width: 50%;
+  margin-bottom: 15px;
+  height: 4px;
+  background-color: darkgrey;
+  border-radius: 5px;
+}
+
+#add {
+  align-self: flex-end;
+  background-color: rgb(221, 205, 62);
+}
+
+.inputField {
+  border: 2px solid black;
+  padding: 5px 2px;
+  width: 100%;
+}
+
+.inputField:hover {
+  border: 4px solid rgb(221, 205, 62);
+}
+
+.greyBackground {
+  background-color: darkgrey;
+}
+
+.btnHover:hover {
+  border: 4px solid rgb(221, 205, 62);
 }
