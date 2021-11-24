@@ -54,6 +54,7 @@ form {
 
 .align-right {
   text-align: right;
+  background-color: rgb(255, 99, 71);
 }
 
 hr {
@@ -62,6 +63,8 @@ hr {
 
 .addBook {
   margin-bottom: 10px;
+  color: rgb(221, 205, 62);
+  font-weight: bold;
 }
 
 .formCont {
@@ -81,12 +84,13 @@ hr {
 
 #add {
   align-self: flex-end;
+  background-color: rgb(221, 205, 62);
 }
 
 .inputField {
   border: 2px solid black;
   padding: 5px 2px;
-  width: 100%
+  width: 100%;
 }
 
 .inputField:hover {
