@@ -4,7 +4,7 @@ let collection = [];
 const addbtn = document.getElementById('add');
 // title = document.getElementById('title');
 const bookContainer = document.getElementById('bookContainer');
-let storageObject;
+let storageObject = '';
 
 const booksHtmlTemplate = (obj) => `<div class='bookCont'>
   <label class='title'>${obj.title}</label><br>
@@ -61,10 +61,15 @@ const addbook = function () {
   storageObject = JSON.parse(localStorage.getItem('books'));
   if (titleinput !== '' && authorinput !== '') {
     const book = new Book(titleinput, authorinput);
-    storageObject.push(book);
-    console.log(storageObject);
-    localStorage.setItem('books', JSON.stringify(storageObject));
-    bookContainer.innerHTML += booksHtmlTemplate(book);
+    if (storageObject === '') {
+      storageObject.push(book);
+      localStorage.setItem('books', JSON.stringify(storageObject));
+      bookContainer.innerHTML += booksHtmlTemplate(book);
+    } else {
+      collection.push(book);
+      localStorage.setItem('books', JSON.stringify(collection));
+      bookContainer.innerHTML += booksHtmlTemplate(book);
+    }
     update();
   }
 };
