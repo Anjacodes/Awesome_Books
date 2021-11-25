@@ -15,24 +15,48 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="#">Awesome Books</a>
+            <ul class="navLinkCont">
+                <li><button type="button" class="navLink" id="list">List</button></li>
+                <li><button type="button" class="navLink" id="addNew">Add new</button></li>
+                <li><button type="button" class="navLink" id="contact">Contact</button></li>
+            </ul>
+        </nav>
+        <span class="date">Hello</span>
+    </header>
     <main>
-        <h1>All awesome Books</h1>
-        <form>
+        <section id="bookList" class="hidden">
+        <h1 class="bookHeader">All awesome Books</h1>
             <table id="bookContainer">
-            <!-- <label id="title"></label><br>
-            <label id="author"></label><br>
-            <input class="remove" type="button" value="Remove">
-            <hr> -->
         </table>
-        <div class="formCont">
-            <hr class ="separator">
-            <h2 class="addBook">Add a new book</h2>
-            <input class="inputField" id="titleInput" type="text" placeholder="Title"><br>
-            <input class="inputField" id="authorInput" type="text" placeholder="Author"><br>
+    </section>
+        <form>
+        <div class="formCont hidden">
+            <h2 class="subheading">Add a new book</h2>
+            <input class="inputField inputTitle" id="titleInput" type="text" placeholder="Title"><br>
+            <input class="inputField inputAuthor" id="authorInput" type="text" placeholder="Author"><br>
             <input id="add" class="btnShadow btnHover" type="button" value="Add">
         </div>
         </form>
+
+        <section class="contact hidden">
+            <h2 class="subheading">Contact Information</h2>
+            <div class="alignLeft">
+            <p class="addMargin">Do you have any questions or you just want to say Hello?<br>You can reach out to us!</p>
+                <ul>
+                    <li>Our e-mail: mail@gmail.com</li>
+                    <li>Our phone number: 0012312148 </li>
+                    <li>Our address: streetname 112f, 50560 newyork, USA</li>
+                </ul>
+            </div>
+        </section>
     </main>
+    <footer>
+        <span>Copyright     ....</span>
+    </footer>
+    <script src="luxon.js"></script>
     <script src="myscripts.js"></script>
 </body>
 </html>
