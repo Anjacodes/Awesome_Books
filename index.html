@@ -27,15 +27,16 @@
         <span class="date">Hello</span>
     </header>
     <main>
-        <h1>All awesome Books</h1>
+
+        <h1 class="hidden">All awesome Books</h1>
         <form>
-            <table id="bookContainer">
+            <table id="bookContainer" class="hidden">
             <!-- <label id="title"></label><br>
             <label id="author"></label><br>
             <input class="remove" type="button" value="Remove">
             <hr> -->
         </table>
-        <div class="formCont">
+        <div class="formCont hidden">
             <hr class ="separator">
             <h2 class="addBook">Add a new book</h2>
             <input class="inputField" id="titleInput" type="text" placeholder="Title"><br>
@@ -43,7 +44,20 @@
             <input id="add" class="btnShadow btnHover" type="button" value="Add">
         </div>
         </form>
+
+        <section class="contact">
+            <h2>Contact Information</h2>
+            <p>Do you have any questions or you just want to say Hello?<b>You can reach out to us!</p>
+                <ul>
+                    <li>Our e-mail: mail@gmail.com</li>
+                    <li>Our phone number: 0012312148 </li>
+                    <li>Our address: streetname 112f, 50560 newyork, USA</li>
+                </ul>
+        </section>
     </main>
+    <footer>
+        <span>Copyright     ....</span>
+    </footer>
     <script src="luxon.js"></script>
     <script src="myscripts.js"></script>
 </body>
