@@ -3,8 +3,45 @@
   margin: 0;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 75px 15px 75px;
+  border: 2px solid black;
+  padding: 5px 10px;
+}
+
+.navLinkCont {
+  display: flex;
+}
+
+.navLink {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.date {
+  float: right;
+  margin-right: 80px;
+}
+
 main {
-  margin: 50px 25px;
+  margin: 75px 25px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
