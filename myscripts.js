@@ -47,6 +47,8 @@ class BookManager {
       bookmgr.Book.author = authorinput;
       const bookCheck = bookmgr.Book;
       const book = bookCheck;
+      document.querySelector('.inputTitle').value = '';
+      document.querySelector('.inputAuthor').value = '';
       if (bookmgr.storageObject === '') {
         bookmgr.storageObject.push(book);
         localStorage.setItem('books', JSON.stringify(bookmgr.storageObject));
