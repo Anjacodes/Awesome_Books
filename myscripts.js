@@ -94,10 +94,39 @@ class BookManager {
 }
 
 let bookmgr = new BookManager();
-let DateTime = luxon.DateTime;
+/*eslint-disable */
+const DateTime = luxon.DateTime;
+/* eslint-enable */
+
 const now = DateTime.now();
-let displayDate= now.toLocaleString(DateTime.DATETIME_MED);
+const displayDate = now.toLocaleString(DateTime.DATETIME_MED);
 
 const date = document.querySelector('.date');
+const list = document.getElementById('list');
+const addNew = document.getElementById('addNew');
+const contact = document.getElementById('contact');
+const contactCont = document.querySelector('.contact');
+const bookList = document.getElementById('bookList');
+const addBook = document.querySelector('.formCont');
 
 date.innerHTML = displayDate;
+
+// ADD EVENT LISTENERS TO NAV BUTTONS
+
+list.addEventListener('click', () => {
+  bookList.style.display = 'flex';
+  addBook.style.display = 'none';
+  contactCont.style.display = 'none';
+});
+
+addNew.addEventListener('click', () => {
+  addBook.style.display = 'flex';
+  bookList.style.display = 'none';
+  contactCont.style.display = 'none';
+});
+
+contact.addEventListener('click', () => {
+  contactCont.style.display = 'flex';
+  bookList.style.display = 'none';
+  addBook.style.display = 'none';
+});
